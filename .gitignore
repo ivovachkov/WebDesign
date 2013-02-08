@@ -172,3 +172,5 @@ pip-log.txt
 *.zip
 *.rar
 *.pdf
+*.config
+*.mswwsettings
