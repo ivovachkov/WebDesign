@@ -10,11 +10,11 @@
         <input type="text" id="a" />
         <br />
         
-        <label for="a">b = </label>
+        <label for="b">b = </label>
         <input type="text" id="b" />
         <br />
         
-        <label for="a">h = </label>
+        <label for="h">h = </label>
         <input type="text" id="h" />
         <br />
         <input type="submit" value="Calculate Trapezoid Area" onclick="CalculateTrapezoidArea()" />
@@ -29,7 +29,7 @@
             var a = parseInt(document.getElementById("a").value);
             var b = parseInt(document.getElementById("b").value);
             var h = parseInt(document.getElementById("h").value);
-            jsConsole.writeLine("Trapezoid's Area = "((a+b)/2)*h);
+            jsConsole.writeLine("Trapezoid's Area = " + ((a+b)/2)*h);
         }
 	</script>
 </body>
