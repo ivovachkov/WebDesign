@@ -45,6 +45,7 @@ body .js-console > p > br {
     background-color: #e3ecf7;
 }
 input{
+    margin-top: 5px;
     color: #444;
     border: 1px solid #5EA7FF;
     padding: 5px;
