@@ -110,6 +110,7 @@ body
             background: -o-linear-gradient(top, #89ffb0 0%, #effff4 100%);
             background: -ms-linear-gradient(top, #89ffb0 0%, #effff4 100%);
             background: linear-gradient(to bottom, #89ffb0 0%, #effff4 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#89ffb0', endColorstr='#effff4', GradientType=0);
             background-repeat: no-repeat;
         }
 
@@ -238,6 +239,7 @@ body
                 text-align: center;
                 font-size: 1.4em;
             }
+
 
 
 
