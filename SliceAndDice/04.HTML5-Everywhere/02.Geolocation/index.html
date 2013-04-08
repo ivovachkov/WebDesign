@@ -5,32 +5,58 @@
     <title>02.GeoLocation</title>
     <script type="text/javascript" src="jquery.js"></script>
 
-    <!--[if lte IE 9]>
+    <!--[if lt IE 9]>
         <script type="text/javascript" src="modernizr.geolocation.js"></script>
     <![endif]-->
 
     <script type="text/javascript" src="js-webshim/minified/polyfiller.js"></script>
 
-    
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=true">
+</script>
 </head>
 
 <body>
+<button onclick="showMap()">Show map</button>
 
-    <p id="demo">Click the button to get your coordinates:</p>
-<button onclick="getLocation()">Try It</button>
     <script>
 
-        $.webshims.polyfill('geolocation');
+        $.webshims.polyfill('geolocation'); //set polyfill with geolocation
 
-        function getLocation() {
+        function showMap() {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
+                navigator.geolocation.getCurrentPosition(setMapSettings);
             }
         }
-        function showPosition(position) {
-            alert("Latitude: " + position.coords.latitude + "; Longitude: " + position.coords.longitude);
-        }
 
+        function setMapSettings(position) {
+
+            //set map properties
+            var mapProp = {
+                center: new google.maps.LatLng(position.coords.latitude, position.coords.longitude), //set the current position
+                zoom: 13, //adjust the zoom of the map
+                mapTypeId: google.maps.MapTypeId.ROADMAP //set map type
+            };
+
+            //initialize map
+            var map = new google.maps.Map(document.getElementById("googleMap")
+              , mapProp);
+
+            //set the latitude and longitude
+            var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+            //set the marker variable to the latlng position 
+            var marker = new google.maps.Marker({
+                position: latlng
+            });
+
+            //set marker
+            marker.setMap(map);
+
+        }
+        
+        google.maps.event.addDomListener(window, 'load', setMapSettings);
     </script>
+
+    <div id="googleMap" style="width:100%; height:500px; margin: 0 auto;"></div>
 </body>
 </html>
