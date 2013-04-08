@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <title>02.GeoLocation</title>
+    <script type="text/javascript" src="jquery.js"></script>
+
+    <!--[if lte IE 9]>
+        <script type="text/javascript" src="modernizr.geolocation.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="js-webshim/minified/polyfiller.js"></script>
+
+    
+</head>
+
+<body>
+
+    <p id="demo">Click the button to get your coordinates:</p>
+<button onclick="getLocation()">Try It</button>
+    <script>
+
+        $.webshims.polyfill('geolocation');
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            }
+        }
+        function showPosition(position) {
+            alert("Latitude: " + position.coords.latitude + "; Longitude: " + position.coords.longitude);
+        }
+
+    </script>
+</body>
+</html>
